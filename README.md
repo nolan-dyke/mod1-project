@@ -1,4 +1,6 @@
-# Mod 1 ActiveRecord Starter Repo
+# Mod 1 ActiveRecord Starter Repo #extra line for save
+
+Here is an additional line just for fun.
 
 In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 
 
