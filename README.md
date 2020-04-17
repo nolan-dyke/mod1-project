@@ -1,20 +1,20 @@
-#The Colorado Beer Suggestor
+# The Colorado Beer Suggestor
 
-##Table of Contents
-* [General Info] (#general-info)
-* [Technologies] (#technologies)
-* [Setup] (#setup)
-* [Code Examples] (#code-examples)
-* [Features] (#features)
-* [Status] (#status)
-* [Contact] (#contact)
-* [License] (#license)
+## Table of Contents
+* [General Info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Code Examples](#code-examples)
+* [Features](#features)
+* [Status](#status)
+* [Contact](#contact)
+* [License](#license)
 
-##General Info
+## General Info
 
 The Colorado Beer Suggestor is a CLI app which takes user input and accordingly suggests a beer from a Colorado microbrewery to try from its database. 
 
-##Technologies
+## Technologies
 
 Ruby - Version 2.6.1
 ActiveRecord - Version 6.0 
@@ -23,7 +23,7 @@ Sinatra-activerecord -  Version 2.0
 SQLite3 - Version 1.4
 TTY Toolkit
 
-##Setup
+## Setup
 
 This program comes equipped with all necessary gems. To use them locally, execute the command:
 
@@ -41,7 +41,7 @@ Finally, run the program with:
 
 `$ ruby runner.rb`
 
-##Code Examples
+## Code Examples
 
 ```ruby
     def beer_information(selection)
@@ -68,7 +68,7 @@ if view_favorites_question
   end 
 ```
     
-##Features
+## Features
 
 * Browse beers by beer type
 * Return suggestions based on beer type
@@ -85,15 +85,15 @@ Future features to be added:
 * Contact and location info for breweries
 * Ability for users to add suggestions
 
-##Status
+## Status
 
 Project is: completed with option to add future functionality.
 
-##Contact
+## Contact
 
-Created by [Nolan Dyke] (www.linkedin.com/in/nolan-dyke) and 
-[Chris Banta] (http://www.linkedin.com/in/chris-banta)
+Created by [Nolan Dyke](www.linkedin.com/in/nolan-dyke) and 
+[Chris Banta](http://www.linkedin.com/in/chris-banta)
 
-##License
+## License
 
 [Click to view](https://github.com/stein0209/TacoLandia/blob/master/License.txt)
