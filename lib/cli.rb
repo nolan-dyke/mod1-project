@@ -74,7 +74,7 @@ class Cli
         favorites_question = prompt.yes?('Add to beers to try?')
         if favorites_question 
             favorite_one = Favorite.create(user: user, beer: beer)
-            puts "Added to favorites!"
+            puts "Added to your beers to try list!"
             view_favorites
         else 
             back_to_beer = prompt.select("Select a different beer?", %w(beer_selection quit_app))
@@ -113,7 +113,7 @@ class Cli
             
         else
             select_another_question = prompt.select('Would you like to make another selection?', %w(make_another_selection quit_app))
-            if select_another_question
+            if select_another_question == "make_another_selection"
                 select_type_of_beer
             else
                 quit_method
