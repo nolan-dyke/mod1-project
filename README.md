@@ -1,4 +1,4 @@
-# The Colorado Beer Suggestor
+# The Colorado Beer Suggester
 
 ## Table of Contents
 * [General Info](#general-info)
@@ -12,7 +12,7 @@
 
 ## General Info
 
-The Colorado Beer Suggestor is a CLI app which takes user input and accordingly suggests a beer from a Colorado microbrewery to try from its database. 
+The Colorado Beer Suggester is a CLI app which takes user input and accordingly suggests a beer from a Colorado microbrewery to try from its database. 
 
 ## Technologies
 
