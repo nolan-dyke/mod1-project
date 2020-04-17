@@ -1,73 +1,99 @@
-# Mod 1 ActiveRecord Starter Repo #extra line for save
+#The Colorado Beer Suggestor
 
-Here is an additional line just for fun.
+##Table of Contents
+* [General Info] (#general-info)
+* [Technologies] (#technologies)
+* [Setup] (#setup)
+* [Code Examples] (#code-examples)
+* [Features] (#features)
+* [Status] (#status)
+* [Contact] (#contact)
+* [License] (#license)
 
-In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 
+##General Info
 
+The Colorado Beer Suggestor is a CLI app which takes user input and accordingly suggests a beer from a Colorado microbrewery to try from its database. 
 
+##Technologies
 
-## ActiveRecord Methods
-These common ActiveRecord methods will help you interact with your database. Please refer to the ActiveRecord
-docs for what they do and how to use them. (If the docs talk about Rails, that is ok! ActiveRecord works very
- similar with or without Rails.)
+Ruby - Version 2.6.1
+ActiveRecord - Version 6.0 
+Sinatra - Version 2.0
+Sinatra-activerecord -  Version 2.0
+SQLite3 - Version 1.4
+TTY Toolkit
+
+##Setup
+
+This program comes equipped with all necessary gems. To use them locally, execute the command:
+
+`$ bundle`
+
+To install and use the database, run the commands:
+
+`$ rake db:seed `
+
+and 
+
+`$ rake db:migrate`
+
+Finally, run the program with:
+
+`$ ruby runner.rb`
+
+##Code Examples
+
+```ruby
+    def beer_information(selection)
+        chosen_beer = Beer.all.find do |beer|
+        beer.name == selection 
+        end
+        table = TTY::Table.new ["Name", "Type", "Brewery", "ABV"], [["#{chosen_beer.name}", "#{chosen_beer.beer_type}", "#{chosen_beer.brewery.name}", "#{chosen_beer.abv}"]]
+        puts table.render(:unicode) 
+        puts "\n"
+        add_to_favorites(@user, chosen_beer)
+    end
 ```
-  .create (.new, .save)
-  .all
-  .count
-  .find
-  .find_by
-  .where
+
+```ruby        
+if view_favorites_question
+  favorite_beers = Favorite.all.map do |favorite|
+      favorite.beer
+    end.uniq
+  puts "\n\n"
+  table = TTY::Table.new header: ["Beer", "Type", "Brewery", "ABV"] do |t|
+      favorite_beers.each do |beer|
+           t << ["#{beer.name}", "#{beer.beer_type}", "#{beer.brewery.name}", "#{beer.abv}"]
+      end 
+  end 
 ```
+    
+##Features
 
-#### Notes
+* Browse beers by beer type
+* Return suggestions based on beer type
+* See beer details
+* Save beers to “to try” list
+* Remove beers from “to try” list
+* View “to try” list
+* Ability to quit application
 
-*Remember*, any model that will have a corresponding table in the database needs to inherit from `ActiveRecord::Base`
-ex:
-```
-class Cat < ActiveRecord::Base
-  # customer methods defined here
-end
-```
+Future features to be added:
 
-- To view database, you can run `sqlite3 db/cats.db`, then can run `.schema` or `.tables` and can run any SQL commands. (Don't need to do this anymore though! ActiveRecord gives us a schema file!)
+* Add API functionality to expand database
+* Ability to search by state
+* Contact and location info for breweries
+* Ability for users to add suggestions
 
+##Status
 
-### Steps to setup Ruby app with activerecord
-(New for ActiveRecord 6.0)
+Project is: completed with option to add future functionality.
 
+##Contact
 
-## The following steps are already done for you in this boiler plate repo. 
-## The steps below are provided to you as a reference only. 
-## You're not expected to memorize this (please don't).
+Created by [Nolan Dyke] (www.linkedin.com/in/nolan-dyke) and 
+[Chris Banta] (http://www.linkedin.com/in/chris-banta)
 
+##License
 
-1. In root of project, run `bundle init`
-1. Add gems: 
-  `bundle add activerecord pry sinatra, sinatra-activerecord rake sqlite3 require_all`
-  run `bundle install`
-1. mkdir config and lib 
-1. mkdir lib/models
-1. touch config/environment.rb config/database.yml
-1. Create your model files and models (make sure to have your models inherit from ActiveRecord::Base)
-1. In config/environment.rb:
-```
-  require 'bundler/setup'
-  Bundler.require
-
-  require_all 'lib'
-```
-1. In config/database.yml:
-  ```
-  development:
-    adapter: sqlite3
-    database: db/cats.sqlite3
-  ```
-1. Touch Rakefile - require ‘config/environment.rb’ and require_relative ‘sinatra/activerecord/rake’ 
-1. Run rake -T to make sure we have access to raketasks
-1. Run `rake db:create_migration NAME=create_cats_table` (will create the db folder if it doesn’t already exist) and will add the migration file to db/migration
-1. Write migration file, then run `rake db:migrate`
-1. Then can see schema in file structure, can also drop into sqlite3 cats.db to see the tables and schema, but don’t really need to do that anymore. *Review rollback here*
-1. Create seeds in db/seeds.rb and run `rake db:seed`
-1. Now can put a pry in environment.rb to run <ModelName>.all and see your seeds.
-
-Make sure your models inherit from `ActiveRecord::Base`
+[Click to view](https://github.com/stein0209/TacoLandia/blob/master/License.txt)
